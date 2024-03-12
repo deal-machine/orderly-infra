@@ -1,0 +1,51 @@
+name: Deploy
+on:
+    push:
+        branches: [main]
+jobs:
+  terraform_apply:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Setup Gcloud Actions
+          uses: 'google-github-actions/auth@v0'
+          with:
+            credentials_json: ${{ secrets.CREDENTIALS }}
+
+        - name: Setup Gcloud
+          uses: "google-github-actions/setup-gcloud@v1"
+
+        - name: Setup Terraform
+          uses: hashicorp/setup-terraform@v3
+
+        - name: Terraform init with upgrade
+          run: terraform init -upgrade
+        
+        - name: Terraform validate
+          run: terraform validate
+
+        - name: Terraform plan
+          run: terraform plan
+
+        - name: Terraform Apply
+          run: |
+            terraform apply -auto-approve \
+            -var="project_id=my-project-tech-challenge" \
+            -var="region=us-central1" \
+            -var="zone=$us-central1-c"
+
+        - name: Database Data
+          id: db_info
+          run: terraform output db_info
+
+        - run: echo ${{ steps.db_info.outputs.stdout }}
+        - run: echo ${{ steps.db_info.outputs.stderr }}
+        - run: echo ${{ steps.db_info.outputs.exitcode }}
+        
+      
+        
+        
+        # set variaveis
+        # setar um bucket para backend
