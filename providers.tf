@@ -7,11 +7,6 @@ terraform {
 provider "google" {
   project     = var.project_id
   region      = "us-central1"
-  credentials = file("./credentials.json")
+  credentials = GOOGLE_APPLICATION_CREDENTIALS
   zone        = "us-central1-c"
 }
-# provider "kubernetes" {
-#   host                   = "https://${module.cluster.cluster_info.cluster_endpoint}"
-#   token                  = module.cluster.cluster_info.cluster_auth
-#   cluster_ca_certificate = base64decode(module.cluster.cluster_info.cluster_ca_certificate)
-# }

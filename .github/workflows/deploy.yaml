@@ -13,6 +13,8 @@ jobs:
           uses: google-github-actions/auth@v1
           with:
             credentials_json: ${{ secrets.CREDENTIALS }}
+          env:
+            GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
 
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v3
