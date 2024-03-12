@@ -9,6 +9,8 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v4
 
+        - run: export GOOGLE_CREDENTIALS='${{ secrets.CREDENTIALS }}'
+
         - name: Authenticate to Google Cloud
           uses: google-github-actions/auth@v1
           with:
