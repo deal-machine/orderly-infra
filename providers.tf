@@ -3,9 +3,7 @@ terraform {
   required_providers {
     google = ">= 5.17.0"
   }
-  backend "gcs" {
-    # create by gibhubaction
-  }
+  backend "gcs" {}
 }
 provider "google" {
   project     = var.project_id

@@ -23,7 +23,7 @@ jobs:
         - name: Terraform init with upgrade
           env:
             GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
-          run: terraform init -backend-config="bucket-action" -backend-config="prefix=terraform/state" -upgrade
+          run: terraform init -backend-config="bucket=bucket-action" -upgrade
         
         - name: Terraform validate
           env:
