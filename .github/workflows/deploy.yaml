@@ -44,7 +44,3 @@ jobs:
         - name: Database Data
           id: db_info
           run: terraform output db_info
-
-        - run: echo ${{ steps.db_info.outputs.stdout }}
-        - run: echo ${{ steps.db_info.outputs.stderr }}
-        - run: echo ${{ steps.db_info.outputs.exitcode }}
