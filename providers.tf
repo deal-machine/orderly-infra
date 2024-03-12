@@ -4,12 +4,12 @@ terraform {
     google = ">= 5.17.0"
   }
   backend "gcs" {
-    # create by action
+    # create by gibhubaction
   }
 }
 provider "google" {
   project     = var.project_id
-  region      = "us-central1"
+  region      = var.region
+  zone        = var.zone
   credentials = GOOGLE_CREDENTIALS
-  zone        = "us-central1-c"
 }

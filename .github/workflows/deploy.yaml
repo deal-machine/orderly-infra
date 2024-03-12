@@ -39,7 +39,7 @@ jobs:
           env:
             GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
           run: |
-            terraform apply -auto-approve -var="project_id=my-project-tech-challenge" -var="region=us-central1" -var="zone=us-central1-c"
+            terraform apply -auto-approve -var="project_id=orderly-tech-challenge" -var="region=us-central1" -var="zone=us-central1-c"
 
         - name: Database Data
           id: db_info
@@ -48,9 +48,3 @@ jobs:
         - run: echo ${{ steps.db_info.outputs.stdout }}
         - run: echo ${{ steps.db_info.outputs.stderr }}
         - run: echo ${{ steps.db_info.outputs.exitcode }}
-        
-      
-        
-        
-        # set variaveis
-        # setar um bucket para backend

@@ -1,5 +1,5 @@
 variable "project_id" {
-  default = "my-project-tech-challenge"
+  default = "orderly-tech-challenge"
 }
 variable "region" {
   default = "us-central1"
