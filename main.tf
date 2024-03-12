@@ -3,7 +3,7 @@ module "database" {
 
   project_id  = var.project_id
   # credentials = file("./credentials.json")
-  credentials = GOOGLE_APPLICATION_CREDENTIALS
+  credentials = GOOGLE_CREDENTIALS
   zone        = var.zone
   region      = var.region
 
@@ -18,7 +18,7 @@ module "cluster" {
 
   project_id  = var.project_id
   # credentials = file("./credentials.json")
-  credentials = GOOGLE_APPLICATION_CREDENTIALS
+  credentials = GOOGLE_CREDENTIALS
   zone        = var.zone
   region      = var.region
 
