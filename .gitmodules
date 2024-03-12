@@ -1,0 +1,6 @@
+[submodule "cloudsql-iac"]
+	path = cloudsql-iac
+	url = https://github.com/deal-machine/cloudsql-iac.git
+[submodule "k8s-engine-iac"]
+	path = k8s-engine-iac
+	url = https://github.com/deal-machine/k8s-engine-iac.git
