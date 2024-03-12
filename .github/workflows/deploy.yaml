@@ -9,12 +9,10 @@ jobs:
         - name: Checkout repository
           uses: actions/checkout@v4
 
-        - name: Setup Google Cloud SDK
-          uses: google-github-actions/setup-gcloud@v0.2.0
+        - name: Authenticate to Google Cloud
+          uses: google-github-actions/auth@v1
           with:
-            version: 'latest'
-            service_account_key: ${{ secrets.CREDENTIALS }}
-            export_default_credentials: true
+            credentials_json: ${{ secrets.CREDENTIALS }}
 
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v3
