@@ -1,9 +1,9 @@
 variable "project_id" {
-  default = "orderly-tech-challenge"
+  default = PROJECT
 }
 variable "region" {
-  default = "us-central1"
+  default = REGION
 }
 variable "zone" {
-  default = "us-central1-c"
+  default = ZONE
 }
