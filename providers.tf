@@ -3,7 +3,9 @@ terraform {
   required_providers {
     google = ">= 5.17.0"
   }
-  backend "gcs" {}
+  backend "gcs" {
+   bucket = "bucket-action"
+  }
 }
 provider "google" {
   project     = var.project_id
