@@ -40,7 +40,7 @@ jobs:
           env:
             GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
           run: |
-            terraform apply -auto-approve -var="project_id=orderly-tech-challenge" -var="region=us-central1" -var="zone=us-central1-c"
+            terraform destroy -auto-approve -var="project_id=orderly-tech-challenge" -var="region=us-central1" -var="zone=us-central1-c"
 
-        - name: Database Data
-          run: terraform output db_info
+        # - name: Database Data
+        #   run: terraform output db_info
