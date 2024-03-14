@@ -23,18 +23,18 @@ jobs:
           env:
             GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
       
-        - name: Terraform init with upgrade
+        - name: init
           run: terraform init -backend-config="bucket=${{ vars.BUCKET }}" -upgrade
         
-        - name: Terraform validate
+        - name: validate
           run: terraform validate
 
-        - name: Terraform plan
+        - name: plan
           run: terraform plan
 
-        - name: Terraform Apply
+        - name: apply
           run: |
             terraform apply -auto-approve -var="project_id=${{ vars.PROJECT }}" -var="region=${{ vars.REGION }}" -var="zone=${{ vars.ZONE }}"
 
-        - name: Database Data
+        - name: Database
           run: terraform output db_info
