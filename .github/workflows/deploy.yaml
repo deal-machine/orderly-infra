@@ -19,16 +19,16 @@ jobs:
           uses: "google-github-actions/setup-gcloud@v1"
 
         - name: Setup Terraform
+          uses: hashicorp/setup-terraform@v3
           env:
             GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
             BUCKET: ${{ vars.BUCKET }}
             PROJECT_ID: ${{ vars.PROJECT }}
             REGION: ${{ vars.REGION }}
             ZONE: ${{ vars.ZONE }}
-          uses: hashicorp/setup-terraform@v3
 
         - name: Terraform init with upgrade
-          run: terraform init -backend-config="bucket=${{ vars.BUCKET }}" -upgrade
+          run: terraform init -backend-config="bucket=$BUCKET" -upgrade
         
         - name: Terraform validate
           run: terraform validate
@@ -38,7 +38,7 @@ jobs:
 
         - name: Terraform Apply
           run: |
-            terraform apply -auto-approve -var="project_id=${{ vars.PROJECT }}" -var="region=${{ vars.REGION }}" -var="zone=${{ vars.ZONE }}"
+            terraform apply -auto-approve -var="project_id=$PROJECT" -var="region=$REGION" -var="zone=$ZONE"
 
         - name: Database Data
           run: terraform output db_info

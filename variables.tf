@@ -1,9 +1,9 @@
 variable "project_id" {
-  default = PROJECT
+  default = "${PROJECT}"
 }
 variable "region" {
-  default = REGION
+  default = "${REGION}"
 }
 variable "zone" {
-  default = ZONE
+  default = "${ZONE}"
 }
