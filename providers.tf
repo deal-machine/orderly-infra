@@ -4,7 +4,7 @@ terraform {
     google = ">= 5.17.0"
   }
   backend "gcs" {
-   bucket = "bucket-action"
+  #  bucket = "bucket-action"
   }
 }
 provider "google" {
