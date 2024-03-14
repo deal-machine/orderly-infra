@@ -17,12 +17,6 @@ jobs:
           uses: "google-github-actions/setup-gcloud@v1"
 
         - name: Setup Terraform
-          env:
-            GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
-            BUCKET: ${{ vars.BUCKET }}
-            PROJECT_ID: ${{ vars.PROJECT }}
-            REGION: ${{ vars.REGION }}
-            ZONE: ${{ vars.ZONE }}
           uses: hashicorp/setup-terraform@v3
 
 
