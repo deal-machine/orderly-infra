@@ -20,8 +20,6 @@ jobs:
 
         - name: Setup Terraform
           uses: hashicorp/setup-terraform@v3
-          env:
-            GOOGLE_CREDENTIALS: ${{ secrets.CREDENTIALS }}
       
         - name: init
           run: terraform init -backend-config="bucket=${{ vars.BUCKET }}" -upgrade
