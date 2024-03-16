@@ -34,5 +34,5 @@ jobs:
           run: |
             terraform apply -auto-approve -var="project_id=${{ vars.PROJECT }}" -var="region=${{ vars.REGION }}" -var="zone=${{ vars.ZONE }}"
 
-        - name: Database
+        - name: db connection
           run: terraform output db_info
