@@ -27,9 +27,6 @@ jobs:
         - name: terraform validate
           run: terraform validate
 
-        - name: terraform plan
-          run: terraform plan
-
         - name: terraform apply
           run: |
             terraform apply -auto-approve -var="project_id=${{ vars.PROJECT }}" -var="region=${{ vars.REGION }}" -var="zone=${{ vars.ZONE }}"
